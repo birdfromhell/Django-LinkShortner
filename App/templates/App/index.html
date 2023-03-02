@@ -3,7 +3,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <title>Django Link Shortener</title>
     <link rel="stylesheet" href="{% static 'style.css' %}">
 </head>
 <body>
@@ -15,7 +15,7 @@
               <li><a href="#">Features</a></li>
               <li><a href="#">Pricing</a></li>
               <li><a href="#">Resources</a></li>
-              <li><a href="#">Login</a></li>
+              <li><a href="{% url 'login'%}">Login</a></li>
               <li><a href="#">Sign Up</a></li>
             </ul>
           </nav>
@@ -47,7 +47,7 @@
             <input type="text" name="original_url" placeholder="shorten a link here" required spellcheck="false"/>
             <button type="submit" class="submit">Shorten it!</button>
             <img
-              src="/images/bg-shorten-desktop.svg"
+              src="{% static "/images/bg-shorten-desktop.svg" %}"
               alt="shorten url desktop svg"
               class="desktop shorten"
             />
@@ -61,7 +61,7 @@
                 <div class="results">
             <div class="item">
             <p>{{ original_url }}</p>
-            <p id="shortlink">Kontol</p>
+            <p id="shortlink">{{ result_url }}</p>
             <button class="copy" onclick="copyFunction()">Copy</button>
               </div>
 
@@ -79,7 +79,7 @@
             <div class="card">
               <div class="card-image">
                 <img
-                  src="/images/icon-brand-recognition.svg"
+                  src="{% static 'images/icon-brand-recognition.svg' %}"
                   alt="brand recognition icon"
                 />
               </div>
@@ -93,7 +93,7 @@
             <div class="card">
               <div class="card-image">
                 <img
-                  src="/images/icon-detailed-records.svg"
+                  src="{% static "/images/icon-detailed-records.svg" %}"
                   alt="brand recognition icon"
                 />
               </div>
@@ -107,7 +107,7 @@
             <div class="card">
               <div class="card-image">
                 <img
-                  src="/images/icon-brand-recognition.svg"
+                  src="{% static "/images/icon-brand-recognition.svg" %}"
                   alt="brand recognition icon"
                 />
               </div>
@@ -126,12 +126,12 @@
     <h2>Boost your links today</h2>
       <button>Get Started</button>
       <img
-        src="/images/bg-boost-desktop.svg"
+        src="{% static '/images/bg-boost-desktop.svg' %}"
         alt="boost your links desktop svg"
         class="desktop boost"
       />
       <img
-        src="/images/bg-boost-mobile.svg"
+        src="{% static "/images/bg-boost-mobile.svg" %}"
         alt="boost your links desktop svg"
         class="mobile boost"
       />
@@ -145,41 +145,7 @@
           <li>Branded Links</li>
           <li>Analytics</li>
         </ul>
-        <ul>
-          <li>Resources</li>
-          <li>Blog</li>
-          <li>Developers</li>
-          <li>Support</li>
-        </ul>
-        <ul>
-          <li>Company</li>
-          <li>About</li>
-          <li>Our Team</li>
-          <li>Careers</li>
-          <li>Contact</li>
-        </ul>
-        <ul class="social">
-          <li>
-            <a href="#">
-              <img src="/images/icon-facebook.svg" alt="facebook svg" />
-            </a>
-          </li>
-          <li>
-            <a href="#">
-              <img src="/images/icon-twitter.svg" alt="twitter svg" />
-            </a>
-          </li>
-          <li>
-            <a href="#">
-              <img src="/images/icon-pinterest.svg" alt="Pinterest svg" />
-            </a>
-          </li>
-          <li>
-            <a href="#">
-              <img src="/images/icon-instagram.svg" alt="instagram svg" />
-            </a>
-          </li>
-        </ul>
+
       </div>
 </footer>
 <div class="loader">

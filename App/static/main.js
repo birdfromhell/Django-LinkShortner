@@ -3,6 +3,7 @@ let text = document.getElementById('shortlink').innerHTML;
     try {
       await navigator.clipboard.writeText(text);
       console.log('Content copied to clipboard');
+      alert('Text telah Di Copy')
     } catch (err) {
       console.error('Failed to copy: ', err);
     }

@@ -1,9 +1,9 @@
 from django.shortcuts import render
 from django.http import HttpResponse
 from django.views import View
+from django.views.generic import TemplateView
 
-import urllib
-import requests
+import pyshorteners
 
 
 # Create your views here.
@@ -14,16 +14,19 @@ class IndexView(View):
 
     def post(self, request):
         tes = False
-        key = ''
-
 
         if request.method == "POST":
-            original_url = request.POST['original_url']
-            url = urllib.parse.quote(original_url)
             tes = True
+            original_url = request.POST['original_url']
+            bitly = pyshorteners.Shortener(api_key="4874bb7031c647ccd574370236bca9c602c19fb7")
+            result_url = bitly.bitly.short(original_url)
 
-            r = request.get(f'http://cutt.ly/api/api.php?key={key}&short={url}&userDomain=1')
             return render(request, 'App/index.html', {
                 'tes': tes,
-                'original_url': original_url
+                'original_url': original_url,
+                'result_url': result_url
             })
+
+
+class Login(TemplateView):
+    template_name = 'App/login.html'
