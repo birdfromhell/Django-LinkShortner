@@ -47,6 +47,7 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'whitenoise.middleware.WhiteNoiseMiddleware',
 ]
 
 ROOT_URLCONF = 'LinkShoertner.urls'
@@ -114,11 +115,7 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 
-STATICFILES_DIRS = (
-    os.path.join(BASE_DIR, "App/static/"),
-)
-
-STATIC_ROOT = os.path.join(BASE_DIR / 'App/static/')
+STATIC_ROOT = os.path.join(BASE_DIR / 'static/')
 
 
 # Default primary key field type
@@ -127,3 +124,10 @@ STATIC_ROOT = os.path.join(BASE_DIR / 'App/static/')
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 MEDIA_URL = 'media/'
+
+STORAGES = {
+    # ...
+    "staticfiles": {
+        "BACKEND": "whitenoise.storage.CompressedManifestStaticFilesStorage",
+    },
+}
