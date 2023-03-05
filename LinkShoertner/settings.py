@@ -127,7 +127,7 @@ MEDIA_URL = 'media/'
 
 STORAGES = {
     # ...
-    "staticfiles": {
+    "static": {
         "BACKEND": "whitenoise.storage.CompressedManifestStaticFilesStorage",
     },
 }
