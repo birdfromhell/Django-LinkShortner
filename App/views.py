@@ -29,4 +29,4 @@ class IndexView(View):
 
 
 class Login(TemplateView):
-    template_name = 'App/login.html'
+    template_name = 'App/../users/templates/login.html'
